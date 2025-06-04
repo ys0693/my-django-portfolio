@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>왼쪽 메뉴 + 배경 이미지 텍스트만</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("{% static 'image_a0a017.png.PNG' %}") no-repeat center center fixed;
+      background-size: cover;
+      color: #111;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      background-color: rgba(19, 52, 52, 0.88);
+      padding-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav a {
+      color: #b7ccc5;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background-color: rgba(29, 77, 77, 0.9);
+    }
+
+    main {
+      margin-left: 200px;
+      padding: 60px;
+      background-color: transparent; /* ✅ 배경 제거 */
+    }
+
+    h1, p {
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8); /* ✅ 약간의 밝은 그림자 효과로 가독성 보완 */
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">자기소개</a>
+    <a href="#">관심 분야</a>
+    <a href="#">프로젝트 수행</a>
+    <a href="#">주요 성과</a>
+    <a href="#">기술 역량</a>
+    <a href="#">포부</a>
+  </nav>
+
+  <main>
+    <h1>왼쪽 메뉴 + 배경 이미지 + 텍스트만</h1>
+    <p>공장 배경이 잘 보이고, 본문에는 배경 없이 글자만 표시됩니다.</p>
+    <p>가독성 유지를 위해 글자에 약한 그림자 효과가 들어갑니다.</p>
+  </main>
+</body>
+</html>

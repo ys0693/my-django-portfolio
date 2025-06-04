@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}자기소개 - 김영식{% endblock %}
+{% block content %}
+  <div class="introduction-container">
+    {# 페이지 제목: 이전 버전에 있던 내용을 복원하거나 새로 지정합니다. #}
+    <h1 class="page-title-light-theme"> </h1>
+
+    <div class="intro-text-content">
+      <p class="lead-paragraph">
+        저는 자동화 시스템의 실질적인 개선과 운영 효율 향상을 중심에 두고 현장 중심의 제어 시스템을 개발해온 <strong class="highlight">기술 엔지니어</strong>입니다.
+      </p>
+      <p>
+        <strong class="highlight">PLC, HMI, SCADA</strong>를 비롯한 산업제어 전반의 기술을 기반으로 <strong class="highlight">LS산전, Siemens, Omron</strong>의 제어기기 환경을 모두 경험하였으며, <strong class="highlight">WinCC</strong> 및 <strong class="highlight">Proface</strong> 기반의 HMI 구성부터 <strong class="highlight">Ladder Logic</strong> 설계, I/O 연동, 실측 테스트까지 폭넓은 영역을 실무적으로 다뤄왔습니다. 단순한 기능 구현을 넘어, 사용자 중심의 인터페이스 구성과 시스템 유지관리성을 고려한 구조 설계를 목표로 하고 있습니다.
+      </p>
+      <p>
+        또한 <strong class="highlight">C#, VB.NET, Python</strong> 등 다양한 언어 기반의 소프트웨어 개발 능력을 바탕으로, 현장에서 필요한 <strong class="highlight">자동화 유틸리티</strong>와 <strong class="highlight">분석 도구</strong>를 직접 개발하며 제어 시스템과 IT 기술 간의 실질적인 융합을 경험하고 있습니다. 기술적 기반 외에도 <strong class="highlight">AutoCAD, ePLAN, Excel VBA</strong> 등 설계 및 문서화 도구를 활용하여 엔지니어링 품질을 일정 수준 이상으로 유지하는 데 주력하고 있습니다.
+      </p>
+      <p>
+        최근에는 산업 자동화 분야에 더 높은 부가가치를 부여하기 위해, <strong class="highlight">예지보전 기능, 데이터 기반 제어, 스마트 설비 구현</strong>에 관심을 갖고 관련 기술을 연구하고 있습니다. 특히 <strong class="highlight">Python 기반 통신/로깅 스크립트, 사용자 페이지 구조 설계</strong> 등은 단순 자동화를 넘어선 <strong class="highlight">지능형 시스템</strong>의 기반을 준비하는 데 중요한 기반이 되고 있습니다.
+      </p>
+      <p>
+        앞으로도 기술적 깊이와 현장 적용력 모두를 겸비한 <strong class="highlight">자동화 전문가</strong>로서, 실질적인 문제를 해결하고 미래 지향적인 제어 시스템을 구현해 나가고자 합니다.
+      </p>
+    </div>
+  </div>
+
+  <style>
+    /* --- 페이지 전역 스타일 --- */
+    /* base.html에서 html, body 배경색을 이미 흰색으로 강제하고 있으므로, 
+       여기서 재정의할 필요는 없습니다. 만약 이 페이지에서만 다른 배경을 원한다면 여기에 추가합니다. */
+    /*
+    html, body {
+        background-color: white !important; 
+        background-image: none !important;
+    }
+    */
+
+    /* --- 페이지 제목 스타일 --- */
+    .page-title-light-theme {
+        color: black;
+        margin-top: 20px; /* 상단 여백 추가 */
+        margin-bottom: 40px; 
+        text-shadow: none;
+        font-size: 2.4em; 
+        font-weight: bold; 
+        text-align: center; 
+    }
+
+    /* --- 자기소개 내용 전체 컨테이너 --- */
+    .introduction-container {
+        max-width: 800px; 
+        margin: 0 auto; 
+        padding: 20px;
+        opacity: 0; /* 애니메이션 시작을 위한 초기 상태 */
+        transform: translateY(20px); /* 애니메이션 시작을 위한 초기 상태 */
+        animation: contentFadeInUp 0.8s 0.2s ease-out forwards; /* 0.2초 지연 후 애니메이션 시작 */
+    }
+
+    /* --- 내용 등장 애니메이션 --- */
+    @keyframes contentFadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* --- 본문 텍스트 스타일 --- */
+    .intro-text-content p {
+        color: #2c3e50; /* 기본 텍스트 색상 (약간 부드러운 어두운 색) */
+        font-size: 1.1em; /* 가독성을 위한 폰트 크기 조정 */
+        line-height: 1.85; /* 줄 간격 넓게 */
+        margin-bottom: 1.8em; 
+        text-shadow: none;
+        text-align: justify; /* 양쪽 정렬로 단정한 느낌 */
+        hyphens: auto; /* 필요한 경우 영어 단어 하이픈 처리 (브라우저 지원 확인) */
+    }
+
+    /* --- 첫 문단 강조 스타일 --- */
+    .intro-text-content .lead-paragraph {
+        font-size: 1.25em; /* 첫 문단 더욱 강조 */
+        font-weight: 500; 
+        color: #1a2533; /* 더 진한 텍스트 색 */
+        margin-bottom: 2.2em; 
+    }
+
+    /* --- 키워드 강조 스타일 --- */
+    .intro-text-content .highlight {
+        font-weight: 700; /* 기존 600에서 좀 더 굵게 */
+        color: #005ea6; /* 기존 파랑 계열보다 약간 더 깊은 색 */
+        /* 미묘한 효과를 위해 다음을 고려할 수 있습니다: */
+        /* text-decoration: underline; */
+        /* text-decoration-color: rgba(0, 94, 166, 0.3); */
+    }
+    
+    /* --- 마지막 문단 하단 여백 제거 --- */
+    .intro-text-content p:last-child {
+        margin-bottom: 0;
+    }
+
+  </style>
+{% endblock %}

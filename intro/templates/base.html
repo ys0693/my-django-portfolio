@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}김영식 소개 페이지{% endblock %}</title>
+    <style>
+        /* 기본 HTML 및 Body 스타일 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white; 
+        }
+
+        /* 스플래시 화면 스타일 */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("{% static 'image_a0a017.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 2000; /* 다른 요소들보다 위에 표시 */
+            cursor: pointer;
+            display: flex; /* 내부 텍스트 컨테이너 정렬을 위해 */
+            justify-content: center;
+            align-items: center;
+            text-align: center; /* 내부 텍스트의 기본 정렬 (필요시) */
+        }
+
+        .splash-text-container {
+            background-color: rgba(255, 255, 255, 0.85); 
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .splash-text-container h1 {
+            font-size: 2.2em; 
+            color: black;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: none; 
+            text-align: center; 
+        }
+
+        .splash-text-container p {
+            font-size: 1.1em; 
+            color: black;
+            margin: 8px 0; 
+            line-height: 1.5;
+            text-shadow: none; 
+            text-align: left; 
+        }
+
+        /* 네비게이션 메뉴 스타일 */
+        nav#main-nav { /* ID 선택자 사용 */
+            width: 230px; 
+            background-color: #262626; 
+            padding-top: 60px; 
+            height: 100vh; 
+            position: fixed; 
+            top: 0;
+            left: 0;
+            display: none; /* 초기에는 숨김 */
+            flex-direction: column;
+            z-index: 1000; 
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.15); 
+        }
+
+        nav#main-nav a {
+            color: #d0d0d0; 
+            text-decoration: none;
+            padding: 17px 25px; 
+            display: block;
+            font-size: 0.98em; 
+            letter-spacing: 0.5px; 
+            border-left: 4px solid transparent; 
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-left-color 0.2s ease-in-out;
+        }
+
+        nav#main-nav a:hover {
+            background-color: #333333; 
+            color: #ffffff; 
+            border-left-color: #007bff; 
+        }
+
+        nav#main-nav a.active { 
+            background-color: #1a1a1a; 
+            color: #ffffff; 
+            font-weight: 600; 
+            border-left-color: #007bff; 
+        }
+
+        /* 주 콘텐츠 영역 스타일 */
+        div#main-content { /* ID 선택자 사용 */
+            margin-left: 230px; 
+            padding: 30px 40px; 
+            box-sizing: border-box; 
+            display: none; /* 초기에는 숨김 */
+        }
+
+        div#main-content h1, div#main-content h2 { /* ID 선택자 사용 */
+            margin-top: 0;
+        }
+    </style>
+    {% block page_styles %}{% endblock %}
+</head>
+<body>
+    <div id="splash-screen">
+        <div class="splash-text-container">
+            <h1>2025년 1학기 파이썬프로그래밍 및 응용 과제</h1>
+            <p>학과 : 전자정보공학과</p>
+            <p>학번 : 2023873028</p>
+            <p>이름 : 김영식</p>
+        </div>
+    </div>
+
+    <nav id="main-nav">
+        <a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}>자기소개</a>
+        <a href="{% url 'skills' %}" {% if request.resolver_match.url_name == 'skills' %}class="active"{% endif %}>기술 역량</a>
+        <a href="{% url 'projects' %}" {% if request.resolver_match.url_name == 'projects' %}class="active"{% endif %}>프로젝트 수행</a>
+        <a href="{% url 'performance' %}" {% if request.resolver_match.url_name == 'performance' %}class="active"{% endif %}>주요 성과</a>
+    </nav>
+
+    <div class="content" id="main-content"> {# .content 클래스는 유지하되, JS는 ID로 접근 #}
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashScreenEl = document.getElementById('splash-screen');
+            const mainNavEl = document.getElementById('main-nav');
+            const mainContentEl = document.getElementById('main-content');
+
+            // 스플래시 화면이나 주요 내용 영역이 없으면 스크립트의 추가 동작 불필요
+            if (!splashScreenEl || !mainNavEl || !mainContentEl) {
+                // 스플래시 화면이라도 있으면 숨기고, 나머지는 보이도록 처리 (예외 상황 대비)
+                if (splashScreenEl) splashScreenEl.style.display = 'none';
+                if (mainNavEl) mainNavEl.style.display = 'flex';
+                if (mainContentEl) mainContentEl.style.display = 'block';
+                return;
+            }
+
+            function displayMainContent() {
+                splashScreenEl.style.display = 'none';
+                mainNavEl.style.display = 'flex';
+                mainContentEl.style.display = 'block';
+            }
+
+            function initializeSplashInteraction() {
+                // CSS에서 #splash-screen이 보이도록 설정되어 있다고 가정
+                splashScreenEl.addEventListener('click', function() {
+                    displayMainContent();
+                    // 현재 세션에서 스플래시를 봤다는 것을 기록 (새로고침 시에는 스플래시 다시 표시 위함이 아님)
+                    // 이 플래그는 "최초의 스플래시 인터랙션이 완료되었음"을 나타내는 용도
+                    if (sessionStorage.getItem('initialSplashInteractionDone') !== 'true') {
+                        sessionStorage.setItem('initialSplashInteractionDone', 'true');
+                    }
+                }, { once: true }); // 클릭 이벤트는 한 번만 작동 후 자동 제거
+            }
+
+            let navigationType = 'navigate'; // 기본 탐색 유형
+            if (performance.getEntriesByType) {
+                const perfEntries = performance.getEntriesByType("navigation");
+                if (perfEntries.length > 0 && perfEntries[0].type) {
+                    navigationType = perfEntries[0].type;
+                }
+            }
+
+            if (navigationType === 'reload') {
+                // 페이지가 '새로고침'된 경우, 항상 스플래시 화면 리스너 설정
+                initializeSplashInteraction();
+            } else {
+                // '새로고침'이 아닌 경우 (일반 탐색, 뒤로/앞으로 등)
+                if (sessionStorage.getItem('initialSplashInteractionDone') === 'true') {
+                    // 현재 세션에서 이미 초기 스플래시 상호작용을 완료했다면,
+                    // (예: 메뉴 클릭으로 다른 페이지로 이동하는 경우) 스플래시 없이 바로 내용 표시
+                    displayMainContent();
+                } else {
+                    // 현재 세션에서 첫 방문이거나 플래그가 없는 경우 (브라우저 첫 실행, 새 탭 등)
+                    // 스플래시 화면 리스너 설정 (CSS에 의해 스플래시 화면이 보여야 함)
+                    initializeSplashInteraction();
+                }
+            }
+        });
+    </script>
+    {% block page_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+{% block title %}기술 역량{% endblock %}
+{% block content %}
+  <h1 class="page-title-light-theme">기술 역량</h1>
+
+  <div class="skills-accordion-container">
+    
+    <button class="accordion-header">
+      <span>핵심 기술 역량</span>
+      <i class="fas fa-plus accordion-indicator-icon"></i> {# 아이콘 클래스명 변경 고려 #}
+    </button>
+    <div class="accordion-panel">
+      <ul>
+        <li>PLC 프로그래밍: LS산전(XG5000, KGLWIN), Siemens(TIA Portal), Omron(CX-Programmer) 대응 가능</li>
+        <li>HMI/SCADA 설계: WinCC, Proface, LS, iFIX 환경에서 태그 연동 및 시각화 구성</li>
+        <li>Ladder Logic 설계 및 디지털/아날로그 I/O 제어 구성</li>
+        <li>C#, VB.NET, .NET Framework 기반 제어 응용프로그램 개발</li>
+        <li>Python 기반 자동화 스크립트, 통신 시뮬레이터, 데이터 처리 도구 개발</li>
+        <li>AutoLISP 활용 CAD 자동화 경험 보유</li>
+        <li>HTML/CSS/JavaScript 기반 사용자 페이지 및 간단한 UI 인터페이스 구성</li>
+        <li>AutoCAD, ePLAN, Excel VBA, Visio 등 설계 및 기술 문서화 도구 사용 가능</li>
+      </ul>
+    </div>
+
+    <button class="accordion-header">
+      <span>관심 분야 및 개발 방향</span>
+      <i class="fas fa-plus accordion-indicator-icon"></i>
+    </button>
+    <div class="accordion-panel">
+      <ul>
+        <li>자동화 시스템 운영 효율화 : 장비 운용 최적화 및 유지보수 편의성 확보를 위한 구조 개선</li>
+        <li>부가가치 창출형 자동화 설계 : 단순 제어를 넘어서 공정 분석, 통계, 예지 기능을 포함한 시스템 설계에 관심</li>
+        <li>사용자 중심 HMI/SCADA 고도화 : 작업자 시인성, 인터랙션 향상 중심의 화면 설계 및 이벤트 구성</li>
+        <li>제어 코드 품질 및 관리체계 확보 : 재사용 가능한 함수 구조, 표준화 로직, 버전관리 기반 유지관리성 확보</li>
+        <li>산업제어 + IT 기술 융합 : 제어시스템 내 Python, .NET 등의 IT 기술 접목을 통한 지능형 설비 구현</li>
+        <li>기술 리더십/PM 역량 강화 : 실무 기반으로 기술 기획, 시스템 설계 총괄 및 장기 로드맵 기획 관심</li>
+      </ul>
+    </div>
+
+    <button class="accordion-header">
+      <span>개발 환경 및 가능 툴</span>
+      <i class="fas fa-plus accordion-indicator-icon"></i>
+    </button>
+    <div class="accordion-panel">
+      <ul>
+        <li>LS, Siemens, Omron 전 모델 PLC 사용 가능 (XGT, S7, CJ 시리즈 등 포함)</li>
+        <li>WinCC, Proface GP-Pro EX, iFIX 등 다양한 HMI/SCADA 툴 실무 경험</li>
+        <li>Visual Studio(C#/VB), Python, AutoLISP 기반 프로그램 작성 및 유지보수</li>
+        <li>HTML/CSS/JS 웹 프론트엔드 기초 구현 가능</li>
+        <li>AutoCAD, ePLAN, Excel VBA, Visio 등 전장 설계 및 자동화 문서화 경험</li>
+        <li>Git, SVN 등 소스/설계 버전 관리 기초 숙련</li>
+      </ul>
+    </div>
+
+    <button class="accordion-header">
+      <span>자격증 보유 및 계획</span>
+      <i class="fas fa-plus accordion-indicator-icon"></i>
+    </button>
+    <div class="accordion-panel">
+      <ul>
+        <li>정보처리기사 <span class="status-badge held">보유</span></li>
+        <li>생산자동화 산업기사 <span class="status-badge held">보유</span></li>
+        <li>전자기사 <span class="status-badge held">2025년 취득 완료</span></li>
+        <li>정보처리기술사 <span class="status-badge planned">2027년 취득 목표</span></li>
+      </ul>
+    </div>
+
+    <button class="accordion-header">
+      <span>어학 역량</span>
+      <i class="fas fa-plus accordion-indicator-icon"></i>
+    </button>
+    <div class="accordion-panel">
+      <ul>
+        <li>OPIC IH 등급 <span class="status-badge planned">2026년 취득</span></li>
+        <li>HSK 2급 <span class="status-badge planned">2027년 목표</span></li>
+      </ul>
+    </div>
+
+    <button class="accordion-header">
+      <span>취미 및 성향</span>
+      <i class="fas fa-plus accordion-indicator-icon"></i>
+    </button>
+    <div class="accordion-panel">
+      <ul>
+        <li>수영 및 러닝: 주기적인 운동을 통해 체력 유지 및 스트레스 해소</li>
+        <li>바이크 투어 준비: 3년 내 알프스 투어 목표 설정 및 체력/계획 관리 중</li>
+        <li>도전 지향 성향: 목표를 세우고 체계적으로 준비하고 실행하는 스타일</li>
+        <li>꾸준한 자기계발 및 기술 탐구를 통해 문제 해결력과 집중력 강화</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <style>
+    /* base.html에서 html, body 배경색을 이미 흰색으로 강제하고 있습니다. */
+
+    .page-title-light-theme {
+        color: black;
+        margin-bottom: 30px; 
+        text-shadow: none;
+        font-size: 2.2em; 
+        font-weight: bold; 
+        text-align: center; 
+    }
+
+    /* --- 아코디언 전체 스타일 --- */
+    .skills-accordion-container {
+        max-width: 900px; 
+        margin: 0 auto 30px auto; /* 하단 여백 추가 */
+        border: 1px solid #e0e0e0; /* 테두리 색상 약간 연하게 */
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.06); /* 그림자 미세 조정 */
+        overflow: hidden; /* 내부 radius 적용을 위해 */
+    }
+
+    /* --- 아코디언 헤더 --- */
+    .accordion-header {
+        background-color: #f9f9f9; /* 기본 배경색 약간 더 밝게 */
+        color: #333; /* 기본 글자색 */
+        cursor: pointer;
+        padding: 16px 20px; /* 패딩 미세 조정 */
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #e0e0e0; 
+        text-align: left;
+        outline: none;
+        font-size: 1.1em; /* 폰트 크기 */
+        font-weight: 600; /* 폰트 두께 */
+        transition: background-color 0.25s ease;
+        display: flex; 
+        align-items: center;
+        justify-content: space-between; 
+    }
+    
+    /* 첫번째/마지막 헤더 radius는 컨테이너에 overflow:hidden으로 처리 */
+    /* .skills-accordion-container > button:first-of-type { ... } */
+    /* .skills-accordion-container > button:last-of-type { ... } */
+   
+    .skills-accordion-container > button:last-of-type {
+        border-bottom: none; /* 마지막 헤더는 패널이 닫혔을 때 하단 테두리 없음 */
+    }
+
+    .accordion-header:hover {
+        background-color: #f0f0f0; 
+    }
+
+    .accordion-header.active { /* 패널이 열렸을 때 헤더 스타일 */
+        background-color: #e8e8e8; 
+        border-bottom-color: transparent; /* 열린 패널 위 헤더는 하단 테두리 없음 */
+    }
+    
+    .accordion-header .accordion-indicator-icon { /* 아이콘 명칭 변경 및 스타일 */
+        font-size: 0.9em; 
+        color: #555; /* 아이콘 색상 */
+        transition: transform 0.3s ease-in-out; /* 아이콘 회전 효과를 위한 준비 */
+    }
+
+    .accordion-header.active .accordion-indicator-icon.fa-plus {
+        /* display: none; /* 플러스 아이콘 숨기기 */
+    }
+    .accordion-header:not(.active) .accordion-indicator-icon.fa-minus {
+        /* display: none; /* 마이너스 아이콘 숨기기 */
+    }
+    /* JavaScript에서 클래스를 직접 fa-plus와 fa-minus로 교체하므로 위 display none은 불필요 */
+
+
+    /* --- 아코디언 패널 --- */
+    .accordion-panel {
+        padding: 0px 25px; /* 초기 상하 패딩 0, 좌우 패딩은 유지 */
+        background-color: white;
+        overflow: hidden;
+        /* border-bottom: 1px solid #e0e0e0; /* 각 패널 하단 테두리 (마지막 패널 제외) */
+        max-height: 0; 
+        opacity: 0;    
+        transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, 
+                    padding-top 0.35s ease-in-out, padding-bottom 0.35s ease-in-out;
+    }
+    /* 마지막 패널의 경우, skills-accordion-container의 border가 하단 테두리 역할을 하므로 제거 */
+    /* .skills-accordion-container > div.accordion-panel:last-of-type {
+        border-bottom: none; 
+    } */
+
+    .accordion-panel ul {
+        list-style-type: disc;
+        padding-left: 20px; /* 목록 들여쓰기 */
+        margin-top: 0; 
+        margin-bottom: 0; 
+    }
+
+    .accordion-panel ul li {
+        color: #333; /* 본문 텍스트 색상 */
+        margin-bottom: 10px; 
+        line-height: 1.65; /* 줄 간격 */
+        font-size: 0.9em; 
+        text-shadow: none;
+    }
+    .accordion-panel ul li:last-child {
+        margin-bottom: 0; /* 패널 패딩으로 하단 여백 제어 */
+    }
+
+    /* --- 상태 배지 스타일 --- */
+    .status-badge {
+        font-size: 0.75em; /* 크기 약간 작게 */
+        padding: 3px 7px; 
+        border-radius: 4px; /* 모서리 약간 더 둥글게 */
+        margin-left: 8px;
+        font-weight: 600; 
+        color: white; 
+        vertical-align: middle; /* 텍스트와 수직 정렬 */
+    }
+    .status-badge.held {
+        background-color: #007bff; 
+    }
+    .status-badge.planned {
+        background-color: #ffc107; 
+        color: #212529; 
+    }
+
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener("click", function() {
+                const clickedHeader = this;
+                const panel = clickedHeader.nextElementSibling;
+                const icon = clickedHeader.querySelector('.accordion-indicator-icon');
+                const isActive = clickedHeader.classList.contains('active');
+
+                // 다른 모든 패널을 닫고 아이콘을 +로 변경 (한 번에 하나만 열리도록)
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== clickedHeader && otherHeader.classList.contains('active')) {
+                        otherHeader.classList.remove("active");
+                        const otherPanel = otherHeader.nextElementSibling;
+                        const otherIcon = otherHeader.querySelector('.accordion-indicator-icon');
+                        
+                        otherPanel.style.maxHeight = null;
+                        otherPanel.style.opacity = "0";
+                        otherPanel.style.paddingTop = "0px";
+                        otherPanel.style.paddingBottom = "0px";
+                        if (otherIcon) {
+                            otherIcon.classList.remove('fa-minus');
+                            otherIcon.classList.add('fa-plus');
+                        }
+                    }
+                });
+
+                // 현재 클릭된 패널 토글
+                clickedHeader.classList.toggle("active");
+                
+                if (!isActive) { // 이제 열릴 차례 (이전에 active가 아니었음)
+                    panel.style.paddingTop = "15px"; 
+                    panel.style.paddingBottom = "15px";
+                    panel.style.opacity = "1";
+                    panel.style.maxHeight = panel.scrollHeight + "px"; 
+                    if (icon) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                } else { // 이제 닫힐 차례 (이전에 active였음)
+                    panel.style.maxHeight = null;
+                    panel.style.opacity = "0";
+                    panel.style.paddingTop = "0px";
+                    panel.style.paddingBottom = "0px";
+                    if (icon) {
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                }
+            });
+        });
+    });
+  </script>
+
+{% endblock %}

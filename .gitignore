@@ -1,0 +1,6 @@
+db.sqlite3
+db.sqlite3-journal
+mysite_env/
+__pycache__/
+*.pyc
+.DS_Store
